@@ -15,13 +15,12 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser", 
           "options": {
             "outputPath": "dist/trip-app",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",  
             "baseHref": "/assingment/",
-
             "polyfills": [
               "zone.js"
             ],
