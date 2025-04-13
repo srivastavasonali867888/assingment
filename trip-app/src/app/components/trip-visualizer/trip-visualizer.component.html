@@ -1,0 +1,25 @@
+<div class="trip-inputs">
+  <input type="text" [(ngModel)]="start" placeholder="Start Point" />
+  <input type="text" [(ngModel)]="end" placeholder="End Point" />
+  <button (click)="addTrip()">Add Trip</button>
+  <button (click)="reset()">Reset</button>
+</div>
+
+<div class="timeline">
+  <ng-container *ngFor="let trip of trips; let i = index">
+    <div class="segment">
+      <div class="circle" [ngClass]="getColorClass(trip)"></div>
+      <div
+        class="line"
+        [ngClass]="{
+          'arrow': trip.isArrow,
+          'level-1': trip.level === 1 && !trip.isArrow,
+          'curve-up': trip.level === 2 && trip.direction === 'up',
+          'curve-down': trip.level === 2 && trip.direction === 'down'
+        }"
+      ></div>
+      <div class="label">{{ trip.start.slice(0, 3) }} - {{ trip.end.slice(0, 3) }}</div>
+    </div>
+  </ng-container>
+
+
